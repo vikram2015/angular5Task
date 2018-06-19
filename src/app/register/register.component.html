@@ -1,0 +1,39 @@
+<form name="studentRegister" style="margin-left: 400px; width: 500px;">
+  <div class="form-group">
+    <label for="studentName">Student Name</label>
+    <input type="text" name="studName" class="form-control" id="studentName" placeholder="Enter Name" [(ngModel)]="formData.studentName">
+  </div>
+
+  <div class="form-group">
+    <label for="userId">User Id</label>
+    <input type="text" name="userName" class="form-control" id="userId" placeholder="User Id" [(ngModel)]="formData.userId">
+  </div>
+
+  <div class="form-group">
+    <label for="password">Password</label>
+    <input type="password" name="pass" class="form-control" id="password" placeholder="Password" [(ngModel)]="formData.password">
+  </div>
+
+  <div class="form-group">
+    <label for="confirmPassword">Confirm Password</label>
+    <input type="password" name="cnfPass" class="form-control" id="cnfPassword" placeholder="Confirm Password" [(ngModel)]="formData.cnfPassword">
+  </div>
+
+  <select name="stdClass" [(ngModel)]="formData.class" style="width: 150px; height: 30px;">
+  <option selected="selected" [value]="Select">Select Class</option>
+  <option value="I">I</option>
+  <option value="II">II</option>
+  <option value="III">III</option>
+  <option value="IV">IV</option>
+  <option value="V">V</option>
+  <option value="VI">VI</option>
+  <option value="VII">VII</option>
+  <option value="VIII">VIII</option>
+  <option value="IX">IX</option>
+  <option value="X">X</option>
+  <option value="XI">XI</option>
+  <option value="XII">XII</option>
+</select><br><br>
+
+  <button type="submit" class="btn btn-primary" (click)="studentRegisteration()">Submit</button>
+</form>

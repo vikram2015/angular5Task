@@ -1,0 +1,39 @@
+<div class="container">
+  <form name="questionForm">
+    <div *ngIf="!queOne">
+      <p>
+        <b> Q 1 : Who is the Prime Minister of India ?</b>
+      </p>
+      <input type="text" name="pm" [(ngModel)]="formData.queOne" required/><br>
+    </div>
+    <div *ngIf="!queTwo">
+      <p>
+        <b> Q 2 : Click any one dropdown</b>
+      </p>
+      <select name="dropd" [(ngModel)]="formData.queTwo">
+    <option selected="selected" [value]="Select">Select Option</option>
+    <option value="first">First dropdown</option>
+    <option value="second">Second dropdown</option>
+    <option value="third">Third dropdown</option>
+    <option value="fourth">Fourth dropdown</option>
+    </select>
+    </div>
+    <div *ngIf="!queThree">
+      <p>
+        <b> Q 3 : Select the checkbox</b>
+      </p>
+      Checkbox : <input type="checkbox" name="chbx" [(ngModel)]="formData.queThree" />
+    </div>
+    <div *ngIf="!queFour">
+      <p>
+        <b> Q 4 : Select the radio button</b>
+      </p>
+      Radio : <input type="radio" name="rad" [(ngModel)]="formData.queFour" value="rad" />
+    </div>
+    <br>
+    <!-- <div *ngIf="!queOne && !queTwo && !queThree && !queFour"> -->
+    <button type="submit" (click)="questionDetails()">SUBMIT</button>
+    <!-- </div> -->
+  </form>
+
+</div>

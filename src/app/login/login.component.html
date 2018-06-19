@@ -1,0 +1,32 @@
+<!-- <form action=""> -->
+<form name="loginForm" style="margin-top: 100px;">
+  <div class="container">
+
+    <label for="uname"><b>Username</b></label>
+    <input type="text" placeholder="Enter Username" name="user" [(ngModel)]="formData.userName" required>
+
+    <label for="psw"><b>Password</b></label>
+    <input type="password" placeholder="Enter Password" name="psw" [(ngModel)]="formData.password" required>
+
+    <!-- <div class="dropdown"  >
+      <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true"
+        aria-expanded="false" >
+    Dropdown button
+  </button>
+      <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+        <a class="dropdown-item" value="isAdmin">Admin</a>
+        <a class="dropdown-item" value="isStudent">Student</a>
+      </div>
+    </div> -->
+    <select name="profile" [(ngModel)]="formData.selectedOption" style="width: 120px; height: 30px; text-transform: uppercase;">
+            <option selected="selected" [value]="Select">Select Role</option>      
+            <option value="isAdmin"><b>Admin</b></option>
+            <option value="isStudent"><b>Student</b></option>
+        </select>
+    <button type="submit" (click)="checkLoginDetails()">Login</button>
+    <button type="submit" (click)="register()">Register</button>
+  </div>
+</form>
+<div>
+  <router-outlet></router-outlet>
+</div>

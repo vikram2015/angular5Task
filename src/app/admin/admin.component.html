@@ -1,0 +1,21 @@
+<div class="container">
+
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th scope="col">Student Name</th>
+        <th scope="col">User Id</th>
+        <th scope="col" style="text-align: center">Student Class</th>
+        <th scope="col" style="text-align: center">Student Rank</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let student of studentRecord;">
+        <td>{{student.studentName}}</td>
+        <td>{{student.userId}}</td>
+        <td style="text-align: center">{{student.studentClass}}</td>
+        <td style="text-align: center">{{student.rank}}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
