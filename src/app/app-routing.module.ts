@@ -12,6 +12,7 @@ import { LoginComponent } from './login/login.component';
 import { AdminComponent } from './admin/admin.component';
 import { StudentComponent } from './student/student.component';
 import { RegisterComponent } from './register/register.component';
+import { SuccessComponent } from './success/success.component';
 
 
 
@@ -22,6 +23,7 @@ const routes: Routes = [
   { path: 'student', component: StudentComponent },
   { path: 'admin', component: AdminComponent },
   { path: 'register', component: RegisterComponent },
+  { path: 'success', component: SuccessComponent },
 //   { path: 'contacts/add', component: addContactsComponent },
   
 //   {

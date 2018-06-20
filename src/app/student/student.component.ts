@@ -23,8 +23,10 @@ export class StudentComponent implements OnInit {
   queFour: Boolean;
   queFive: Boolean;
   rank = 0;
+  savedQuestions = {};
+  newQuestion = {};
 
-  constructor(private _studentService: StudentService) { }
+  constructor(private _studentService: StudentService, private _router: Router) { }
 
   questionDetails = function () {
 
@@ -34,6 +36,8 @@ export class StudentComponent implements OnInit {
       }
     }
 
+    this.newQuestion = Object.assign(this.savedQuestions, this.formData)
+
     this.newdata = {
       _id: this.studentData._id,
       studentName: this.studentData.studentName,
@@ -41,11 +45,13 @@ export class StudentComponent implements OnInit {
       studentClass: this.studentData.studentClass,
       userId: this.studentData.userId,
       isStudent: this.studentData.isStudent,
-      questionRecord: this.formData
+      questionRecord: this.newQuestion
     }
 
     this._studentService.updateStudent(this.newdata).subscribe((data) => {
-      console.log(data);
+      if(data.success){
+         this._router.navigateByUrl('success');
+      }
     })
 
   }
@@ -54,9 +60,12 @@ export class StudentComponent implements OnInit {
     var dat = localStorage.getItem("loginData");
     let id = dat;
     this._studentService.getStudentDetails(id).subscribe((data) => {
-      this.studentData = data.data;
+      if (data.data) {
+        this.studentData = data.data;
+      }
       if (data.data) {
         if (data.data.questionRecord) {
+          this.savedQuestions = data.data.questionRecord;
           if (data.data.questionRecord.queOne) {
             this.queOne = true;
           } else {

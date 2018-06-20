@@ -17,6 +17,7 @@ import { AdminServiceService } from './admin-service.service';
 import { AdminComponent } from './admin/admin.component';
 import { RegisterComponent } from './register/register.component';
 import { RegisterService } from './register.service';
+import { SuccessComponent } from './success/success.component';
 
 
 @NgModule({
@@ -25,7 +26,8 @@ import { RegisterService } from './register.service';
     LoginComponent,
     StudentComponent,
     AdminComponent,
-    RegisterComponent
+    RegisterComponent,
+    SuccessComponent
   ],
   imports: [
     BrowserModule,
