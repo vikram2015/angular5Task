@@ -29,7 +29,8 @@ export class LoginService {
 
 
 
-  checkLogin(parameter) {
+  checkLogin(parameter, option) {
+    parameter.selectedOption = option;
 
     // const headers = new Headers({ 'Content-Type': 'application/json' });
     return this._http.post('/login/checkAdminLogin', parameter).map(function (data) {

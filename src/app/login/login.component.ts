@@ -3,7 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs/Observable';
 import { HttpClient } from '@angular/common/http';
 import { Router, ActivatedRoute } from '@angular/router';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, FormGroup, FormControl, FormArray, Validators, ReactiveFormsModule } from '@angular/forms';
 import { AppRoutingModule } from '../app-routing.module';
 import { LoginService } from '../login.service';
 
@@ -20,6 +20,10 @@ export class LoginComponent implements OnInit {
   isAdmin: Boolean;
   parameter = {};
   formData = {};
+  class: Array<any>;
+  selectedOption: String;
+  selectedStudent: Boolean;
+  loginForm: FormGroup;
 
   constructor(private _LoginService: LoginService, private _router: Router) { }
 
@@ -29,7 +33,6 @@ export class LoginComponent implements OnInit {
    */
   userLogin() {
     this._LoginService.getLogin().subscribe((data) => {
-      console.log(data);
     })
   }
 
@@ -54,7 +57,7 @@ export class LoginComponent implements OnInit {
    * This function is for checking the login details
    */
   checkLoginDetails() {
-    this._LoginService.checkLogin(this.formData).subscribe((data) => {
+    this._LoginService.checkLogin(this.formData, this.selectedOption).subscribe((data) => {
       if (data.success) {
         if (data.data.isAdmin == true) {
           this._router.navigateByUrl('admin');
@@ -68,17 +71,23 @@ export class LoginComponent implements OnInit {
       } else {
         alert('User Name and Password not match');
       }
-    })
-  }
+    });
+  };
 
-
-  register(){
+  register() {
     this._router.navigateByUrl('register');
   }
 
 
 
   ngOnInit() {
+
+    // this.loginForm = new FormGroup({
+    //     user: new FormControl('Hello',[
+    //       Validators.required
+    //     ]),
+    // })
+
   }
 
 }

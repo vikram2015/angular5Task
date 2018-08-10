@@ -3,7 +3,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { HttpModule } from '@angular/http';
 import { NgModel } from '@angular/forms';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 
 
@@ -18,6 +18,8 @@ import { AdminComponent } from './admin/admin.component';
 import { RegisterComponent } from './register/register.component';
 import { RegisterService } from './register.service';
 import { SuccessComponent } from './success/success.component';
+import { StudentFormComponent } from './student-form/student-form.component';
+import { StudentFormService } from './student-form.service';
 
 
 @NgModule({
@@ -27,16 +29,18 @@ import { SuccessComponent } from './success/success.component';
     StudentComponent,
     AdminComponent,
     RegisterComponent,
-    SuccessComponent
+    SuccessComponent,
+    StudentFormComponent
   ],
   imports: [
     BrowserModule,
      HttpModule,
     FormsModule,
     HttpClientModule,
-    AppRoutingModule
+    AppRoutingModule,
+    ReactiveFormsModule
   ],
-  providers: [LoginService,StudentService,AdminServiceService,RegisterService],
+  providers: [LoginService,StudentService,AdminServiceService,RegisterService,StudentFormService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

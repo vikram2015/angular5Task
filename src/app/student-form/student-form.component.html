@@ -1,0 +1,114 @@
+<!-- <div class="container">
+  <form [formGroup]="studentForm" (ngSubmit)="formDetails()">
+    <div class="form-group">
+      <label for="question">Question </label>
+      <input type="text" class="form-control" formControlName="question" [(ngModel)]="que">
+      <div class="alert alert-danger" *ngIf="question.touched && question.invalid">
+        <p *ngIf="question.errors.required">Name is required</p>
+        <p *ngIf="question.errors.minlength">Minimum length should be {{ question.errors.minlength.requiredLength }}</p>
+        <p *ngIf="question.errors.maxlength">Maximum length should be 20</p>
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="Answer">Answer </label>
+      <input type="text" class="form-control" formControlName="answer">
+    </div>
+    <fieldset formGroupName="adress">
+      <legend>Adress</legend>
+      <div class="form-group">
+        <label for="line1">Adress Line 1 </label>
+        <input type="text" class="form-control" formControlName="line1">
+      </div>
+      <div class="form-group">
+        <label for="city">City </label>
+        <input type="text" class="form-control" formControlName="city">
+      </div>
+      <div class="form-group">
+        <label for="state">State </label>
+        <input type="text" class="form-control" formControlName="state">
+      </div>
+    </fieldset>
+    <fieldset>
+      <legend>Question |<button type="submit" (click)="addHobbies()">+</button></legend>
+      <div formArrayName="hobbies" class="input-group" *ngFor="let hobbyControl of studentForm.get('hobbies').controls; let i = index">
+        Question {{i+1}} :&nbsp;&nbsp;<input type="text" class="form-control" [formControlName]="i" placeholder="Question"><br>
+        <span style="margin-top: 10px;" class="input-group-addon glyphicon glyphicon-trash" (click)="deleteHobbies(i)">&nbsp;&nbsp;X</span>
+      </div>
+    </fieldset>
+    <button type="submit" class="btn btn-primary" style="margin-top: 50px;" >Submit</button>
+     [disabled]="studentForm.invalid" 
+  </form>
+</div>
+ -->
+
+<!-- <div>
+      <p>
+        <b> Q 2 : Click any one dropdown</b>
+      </p>
+      <select name="dropd" [(ngModel)]="formData.queTwo">
+    <option selected="selected" [value]="Select">Select Option</option>
+    <option value="first">First dropdown</option>
+    <option value="second">Second dropdown</option>
+    <option value="third">Third dropdown</option>
+    <option value="fourth">Fourth dropdown</option>
+    </select>
+    </div> -->
+  <button type="submit" ><i class="fas fa-sign-in-alt"></i> Back </button><hr>
+<form #formRef="ngForm" name="questionForm" class="container">
+  <button class="btn btn-success" style="width: 80px;float: right;margin-top: -38px;" (click)="Back()">Back </button><hr>
+  <span class="heading"><b><h1>Add The New Question And Answer :</h1></b></span>
+  <div class="row">
+    <select name="dropd" name="classRange" [(ngModel)]="formData.classRange" (ngModelChange)="optionSelected()" style="margin-left: 250px;margin-top: 50px;margin-bottom: 50px;">
+    <option selected="selected" [value]="Select">Select Class Range</option>
+    <option value="1to5">Class One To Five</option>
+    <option value="6to10">Class Six To Ten</option>
+    <option value="11to12">Class Eleven To Twelve</option>
+    </select>
+    <button style="margin-left: 180px; margin-top: 50px;margin-bottom: 50px;" class="btn btn-success" (click)="add()">Add New Question</button>&nbsp;&nbsp;&nbsp;&nbsp;
+  </div>
+
+  
+  <div *ngIf="optionsSelected">
+  <div *ngFor="let word2 of formRecord; let in=index" class="col-sm-6">
+    <div class="form-group">
+      
+      <span class="queStyle">Question {{in+1}} :</span><span><button class="btn btn-danger" style="float:right;margin-right:-315px;margin-top:33px;width:90px;" (click)="clear(in)">X (Clear)</button></span> 
+      <input type="text" class="inputType" [(ngModel)]="formRecord[in].Question" name="name{{in}}" class="form-control" #name="ngModel" placeholder="Question" required />
+        
+        <span class="queStyle">Answer {{in+1}} :</span> 
+        <input type="text" class="inputType" [(ngModel)]="formRecord[in].answer" name="name{{in}}" class="form-control" #name="ngModel" placeholder="Answer" required />
+    </div>
+    <br />
+  </div>
+ <div class="row" style="text-align: center; margin-left: 300px">
+    <button [disabled]="submitButton == false" class="btn btn-success" style="margin-left: 320px;" (click)="submit()">Submit Question</button>
+  </div>  
+  
+  <!--<div class="input-group mb-3">
+  <div class="input-group-prepend">
+    <button class="btn btn-outline-secondary" type="button">Button</button>
+  </div>
+  <input type="text" class="form-control" placeholder="" aria-label="" aria-describedby="basic-addon1">
+</div>
+
+<div class="btn-group">
+  <button type="button" class="btn btn-danger dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+    Action
+  </button>
+  <div class="dropdown-menu">
+    <a class="dropdown-item" href="#">Action</a>
+    <a class="dropdown-item" href="#">Another action</a>
+    <a class="dropdown-item" href="#">Something else here</a>
+    <div class="dropdown-divider"></div>
+    <a class="dropdown-item" href="#">Separated link</a>
+  </div>
+</div> -->
+</div>
+
+</form>
+
+
+<router-outlet></router-outlet>
+<br />
+<br />
+<!-- {{words2 | json}} -->

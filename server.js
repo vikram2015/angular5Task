@@ -9,6 +9,7 @@ let path = require('path');
 let app = express();
 let Login = require('./backend/routes/login');
 let Student = require('./backend/routes/studentRoutes');
+let NewForm = require('./backend/routes/newFormRoutes');
 
 //middleware
 app.use(bodyParser.json());
@@ -18,6 +19,7 @@ app.use(bodyParser());
 app.use(express.static(path.join(__dirname, 'dist')));
 app.use('/login',Login);
 app.use('/student',Student);
+app.use('/newForm',NewForm);
 
 
 app.get('*', function(req,res,next){

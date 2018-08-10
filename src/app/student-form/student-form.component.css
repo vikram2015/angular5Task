@@ -1,0 +1,25 @@
+.ng-touched .ng-invalid{
+    border: 1px solid red;
+}
+.queStyle{
+    /* border: 2px solid red; */
+    /* text-align: right; */
+    color: green;
+    margin-top: 50px;
+}
+.container{
+    border: 1px  royalblue ;
+      margin-top: 50px; 
+    /* margin-left: 350px;  */
+    text-align: center
+}
+.heading{
+    font-family: Arial, Helvetica, sans-serif;
+    /* margin-left: 150px; */
+    color: brown;
+}
+input{
+    margin-left: 220px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}

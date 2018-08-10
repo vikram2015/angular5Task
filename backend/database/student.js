@@ -29,6 +29,10 @@ let StudentSchema = new Schema({
     },
     questionRecord:{
         type:Object
+    },
+    classRange:{
+        type:String,
+        required:true
     }
 
 });

@@ -21,6 +21,8 @@ export class RegisterComponent implements OnInit {
     this.registerationService.saveStudent(this.formData).subscribe((data)=>{
       if(data.success){
         this._router.navigateByUrl('');
+      }else{
+        
       }
     })
   }

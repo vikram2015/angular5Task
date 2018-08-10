@@ -70,7 +70,7 @@ let getStudentLogin = () => {
 let checkAdminLogin = (parameter) => {
     let returnParameter = {};
     return new Promise((resolve, reject) => {
-        LoginModel.find({ userId: parameter.userId, isAdmin:parameter.isAdmin })
+        LoginModel.find({ userId: parameter.userId, isAdmin: parameter.isAdmin })
             .exec()
             .then((data) => {
                 if (data[0]) {
@@ -78,8 +78,8 @@ let checkAdminLogin = (parameter) => {
                     if (data[0].userId === parameter.userId && data[0].password === parameter.password && data[0].isAdmin === true) {
 
                         returnParameter = {
-                            _id : data[0]._id,
-                            isAdmin:data[0].isAdmin
+                            _id: data[0]._id,
+                            isAdmin: data[0].isAdmin
                         }
                         resolve(returnParameter);
 
@@ -96,16 +96,16 @@ let checkAdminLogin = (parameter) => {
 let checkStudentLogin = (parameter) => {
     let returnParameter = {};
     return new Promise((resolve, reject) => {
-        StudentLogin.find({ userId: parameter.userId, isStudent:parameter.isStudent })
+        StudentLogin.find({ userId: parameter.userId, isStudent: parameter.isStudent })
             .exec()
             .then((data) => {
                 if (data[0]) {
 
                     if (data[0].userId === parameter.userId && data[0].password === parameter.password && data[0].isStudent === true) {
                         returnParameter = {
-                            _id : data[0]._id,
-                            name:data[0].studentName,
-                            isStudent:data[0].isStudent
+                            _id: data[0]._id,
+                            name: data[0].studentName,
+                            isStudent: data[0].isStudent
                         }
                         resolve(returnParameter);
                     } else {
@@ -126,6 +126,6 @@ module.exports = {
     getAdminLogin: getAdminLogin,
     getStudentLogin: getStudentLogin,
     checkAdminLogin: checkAdminLogin,
-    checkStudentLogin:checkStudentLogin
+    checkStudentLogin: checkStudentLogin
 
 }
